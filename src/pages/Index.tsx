@@ -37,7 +37,7 @@ const Index = () => {
   const [selectedEmployees, setSelectedEmployees] = useState<number[]>([]);
   const [newEmployee, setNewEmployee] = useState({ fullName: '', department: '', rank: '' });
   const [newZone, setNewZone] = useState({ address: '', contractStatus: 'active' as const });
-  const [alarmSound] = useState(new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmEiAjKr5/OpfCYDF2W86+GSZQ0JRaq+a9K+hWA6v4AvAm5lqunEhDUTJ26+3NN3JSI7kNXTojkRO3rF8N94MTJFltTHsCIYP21IyHKGG1tzQjfJrwcwJY7S0VtFTjgvLMzGbH6+3tKtb41g4PCa4KaWQHfPvwCGTU0JgdqyRLl4uh7yc9JVl3ZZaQJ');
+
 
   // Генерация 400 участков
   useEffect(() => {
@@ -82,7 +82,8 @@ const Index = () => {
           newZones[randomIndex].status = 'alarm';
           // Воспроизведение звука
           try {
-            alarmSound.play();
+            const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAA==');
+            audio.play();
           } catch (e) {
             console.log('Не удалось воспроизвести звук');
           }
